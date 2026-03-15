@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Blue Ecommerce Store</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6fb;
+}
+
+/* NAVBAR */
+
+nav{
+background:#1e40af;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+font-weight:bold;
+}
+
+nav input{
+padding:6px;
+border-radius:5px;
+border:none;
+}
+
+nav button{
+padding:6px 12px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:5px;
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+padding:30px;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:30px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+padding:15px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.price{
+color:#2563eb;
+font-weight:bold;
+margin:10px 0;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:8px 18px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1e40af;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h2>Blue Store</h2>
+
+<form method="GET" action="/store">
+
+<input type="text" name="search" placeholder="Search products">
+
+<button>Search</button>
+
+</form>
+
+<div>
+
+<a href="/store">Home</a>
+
+<a href="/cart">Cart ({{cart_count}})</a>
+
+<a href="/admin">Admin</a>
+
+<a href="/">Logout</a>
+
+</div>
+
+</nav>
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>Blue Ecommerce Store</h1>
+
+<p>Shop the latest gadgets online</p>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<div class="products">
+
+{% for p in products %}
+
+<div class="card">
+
+<img src="{{p.image}}">
+
+<h3>{{p.name}}</h3>
+
+<p class="price">₹{{p.price}}</p>
+
+<form action="/add" method="POST">
+
+<input type="hidden" name="product" value="{{p.name}}">
+<input type="hidden" name="price" value="{{p.price}}">
+
+<button>Add to Cart</button>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

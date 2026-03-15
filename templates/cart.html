@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Your Cart</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+height:100vh;
+background:linear-gradient(135deg,#2563eb,#60a5fa);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+width:500px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+padding:10px;
+border-bottom:1px solid #eee;
+}
+
+button{
+margin-top:20px;
+background:#b50a38;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1e40af;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Your Cart</h2>
+
+{% for c in cart %}
+
+<div class="item">
+
+<span>{{c.product}}</span>
+<span>₹{{c.price}}</span>
+
+</div>
+
+{% endfor %}
+
+<form action="/place" method="POST">
+
+<button>Place Order</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

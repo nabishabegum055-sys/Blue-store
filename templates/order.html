@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-10 rounded-3xl shadow-2xl text-center max-w-sm">
+        <img src="{{ product.img }}" class="w-full rounded-2xl h-56 object-cover mb-4">
+        <h1 class="text-2xl font-bold">{{ product.name }}</h1>
+        <p class="text-blue-600 text-3xl font-black my-4">₹{{ product.price }}</p>
+        <button onclick="alert('Order Successful! Thanks for shopping at Nexus.')" class="w-full bg-green-500 text-white py-4 rounded-2xl font-bold text-lg">Confirm Order</button>
+        <a href="/" class="block mt-4 text-gray-400">Cancel</a>
+    </div>
+</body>
+</html>

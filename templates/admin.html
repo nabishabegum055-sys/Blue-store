@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Admin Orders</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:linear-gradient(135deg,#2563eb,#60a5fa);
+}
+
+.container{
+width:70%;
+margin:auto;
+margin-top:60px;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.order{
+display:flex;
+justify-content:space-between;
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.order:nth-child(even){
+background:#f9f9f9;
+}
+
+.price{
+color:#2563eb;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>📦 Admin Orders</h2>
+
+{% for o in orders %}
+
+<div class="order">
+
+<span>{{o.product}}</span>
+
+<span class="price">₹{{o.price}}</span>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
